@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "target": "es2019",
+        "types": [
+            "node",
+            "webdriverio/async",
+            "@wdio/cucumber-framework",
+            "expect-webdriverio",
+            "wdio-intercept-service"
+        ],
+        "noImplicitAny": false,
+        "strictNullChecks": true,
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "sourceMap": false,
+        "resolveJsonModule": true,
+        "baseUrl": "main",
+        "paths": {
+            "@wdio-ui/*": ["pageObjects/*"],
+            "@wdio-config/*": ["config/*"],
+            "@wdio-utils/*": ["utils/*"]      
+          }
+    }
+}
