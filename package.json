@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "RunTest": "npx wdio run wdio.conf.ts",
+    "RunTest": "npx wdio run wdio.conf.ts chrome qa current",
     "type": "module"
   },
   "keywords": [],
@@ -26,7 +26,7 @@
     "multiple-cucumber-html-reporter": "^1.18.3",
     "soft-assert": "^0.2.7",
     "systemjs": "^6.10.3",
-    "ts-node": "^10.9.1",
+    "ts-node": "^10.9.2",
     "tsconfig-paths": "^3.12.0",
     "tslib": "^2.3.1",
     "typescript": "^4.8.3",

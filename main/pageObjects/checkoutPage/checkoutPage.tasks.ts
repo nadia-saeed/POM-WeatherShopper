@@ -2,6 +2,7 @@ import * as locators from "@wdio-ui/checkoutPage/checkoutPage.locators";
 
 export async function clickToPay(){
     await locators.paymentButton.waitForDisplayed({timeout: 20000});
+    await locators.paymentButton.waitForClickable({timeout: 20000});
     await locators.paymentButton.click();
 };
 
@@ -12,7 +13,7 @@ export async function enterIframe(){
 };
 
 async function enterEachCredential(credentialName, credentialValue){
-    await credentialName.waitForDisplayed({timeout: 30000});
+    await credentialName.waitForDisplayed({timeout: 40000});
         for(const char of credentialValue){
             await credentialName.addValue(char);
     };
@@ -28,6 +29,7 @@ export async function enterCredentials(){
 
 export async function placeOrder(){
     await locators.submitButton.waitForDisplayed({timeout: 20000});
+    await locators.submitButton.waitForClickable({timeout: 20000})
     await locators.submitButton.click();
 };
 

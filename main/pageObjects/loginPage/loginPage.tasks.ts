@@ -16,6 +16,7 @@ export async function extractTemperatureValue(){
 
 export async function clickButton(btnLocator){
     await btnLocator.waitForDisplayed();
+    await btnLocator.waitForClickable();
     await btnLocator.click();
 };
 

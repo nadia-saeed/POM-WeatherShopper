@@ -16,7 +16,8 @@ async function getProductsListAndPrices(text){
     let productsPrices = await fetchProductsPrices(text);
 
     for(let i = 0 ; i < productsNames.length ; i++){
-        variables.productsNamesList.push(await productsNames[i].getText());
+        await browser.pause(2000)
+      variables.productsNamesList.push(await productsNames[i].getText());
     };
 
     for(let j = 0 ; j < productsPrices.length ; j++){
@@ -53,6 +54,7 @@ async function clickAddToCartButton(){
     let productNameElement = variables.productsNamesList[index];
     let articlesButton = `//button[@onclick="addToCart('${productNameElement}',${leastPrice})"]`;
     await $(articlesButton).waitForDisplayed();
+    await $(articlesButton).waitForClicable();
     await $(articlesButton).click();
 };
 

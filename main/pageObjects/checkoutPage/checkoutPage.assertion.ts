@@ -1,5 +1,4 @@
 import * as locators from "@wdio-ui/checkoutPage/checkoutPage.locators";
-
 import * as variables  from "../../../tests/step-definitions/weatherShopper.steps";
 
 export async function assertionOfTotalPrice(){

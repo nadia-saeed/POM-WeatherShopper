@@ -5,9 +5,9 @@ import * as loginTasks from '@wdio-ui/loginPage/loginPage.tasks';
 import * as productsTasks from '@wdio-ui/productsPage/productsPage.tasks';
 import * as checkoutTasks from '@wdio-ui/checkoutPage/checkoutPage.tasks';
 
-export let productsNamesList;
-export let productsPricesList;
-export let unitlessProductPrices;
+export let productsNamesList = []
+export let productsPricesList = []
+export let unitlessProductPrices = []
 export let sumOfPrices;
 
 
@@ -33,4 +33,5 @@ Then("order should be successfully placed", async () => {
     await checkoutTasks.placeOrder();
     await checkoutTasks.exitIframe();
     await checkoutAssertions.assertionOnOrderSuccess('PAYMENT SUCCESS');
+    await browser.pause(4000)
 });
