@@ -124,7 +124,7 @@ export const config: Options.Testrunner = {
     // will be called from there.
     //
     specs: [
-        './tests/features/*.feature'
+         'weatherShopper.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -162,7 +162,7 @@ export const config: Options.Testrunner = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'debug',
+    logLevel: 'error',
     //
     // Set specific log levels per logger
     // loggers:
@@ -202,7 +202,23 @@ export const config: Options.Testrunner = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['selenium-standalone'],
+   // services: ['selenium-standalone'],
+
+    services: [
+      ['selenium-standalone',
+        { drivers: {
+          chrome: { version: '125.0.6422.142' },
+         
+          firefox: { version: '0.33.0' },
+          
+          chromiumedge: { version: '125.0.2535.85' }
+        },
+        installArgs: { chrome: { version: '125.0.6422.142' },
+        
+        firefox: { version: '0.33.0' }, 
+        chromiumedge: { version: '125.0.2535.85' }} 
+        } ]],
+
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
@@ -230,7 +246,7 @@ export const config: Options.Testrunner = {
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['./tests/step-definitions/*.ts'],
+        require: ['weatherShopper.steps.ts'],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)

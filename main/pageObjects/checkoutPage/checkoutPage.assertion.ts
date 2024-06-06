@@ -1,15 +1,12 @@
 import * as locators from "@wdio-ui/checkoutPage/checkoutPage.locators";
 import assert from "soft-assert"
-
-// export async function assertionOnLoginPage(message){
-//     await (locators.flash).waitForDisplayed({timeout:10000})
-//     // eslint-disable-next-line prefer-const
-//     let expectedText=await locators.flash.getText()
-//     await console.log(expectedText)
-//     await assert.softAssert(expectedText,message,'Error message not matched',[])
-//     assert.softAssertAll()
-// }
+import * as variables  from "../../../tests/step-definitions/weatherShopper.steps";
 
 export async function assertionOfTotalPrice(){
-    await expect(locators.totalPrice).toHaveText(expect.stringContaining(`${sumOfPrices}`));
-}
+    expect(locators.totalPrice).toHaveTextContaining(`${variables.sumOfPrices}`);
+};
+
+export async function assertionOnOrderSuccess(successText){
+    await locators.successMessage.waitForDisplayed();
+    await expect(locators.successMessage).toHaveText(successText);
+};
