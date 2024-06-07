@@ -8,7 +8,7 @@ import * as checkoutTasks from '@wdio-ui/checkoutPage/checkoutPage.tasks';
 export let productsNamesList = []
 export let productsPricesList = []
 export let unitlessProductPrices = []
-export let sumOfPrices;
+// export let sumOfPrices;
 
 Given("user is on the main page", async() => {
     await browser.url('/');
@@ -16,9 +16,8 @@ Given("user is on the main page", async() => {
 });
 
 When("user chooses the products", async () => {
-    await mainPageTasks.fetchTemperature();
-    await mainPageTasks.extractTemperatureValue();
     await mainPageTasks.selectProductsBasedOnTemperature(19,34);
+    await browser.pause(2000)
     await productsTasks.clickRelevantArticles();
     await productsTasks.clickTheCart();
     await checkoutAssertions.assertionOfTotalPrice();

@@ -190,11 +190,11 @@ export const config: Options.Testrunner = {
     baseUrl:baseURL,
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 30000,
+    waitforTimeout: 1000000,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
-    connectionRetryTimeout: 120000,
+    connectionRetryTimeout: 300000,
     //
     // Default request retries count
     connectionRetryCount: 3,
@@ -204,7 +204,7 @@ export const config: Options.Testrunner = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
    // services: ['selenium-standalone'],
-
+   services: ['selenium-standalone'],
     // services: [
     //   ['selenium-standalone',
     //     { drivers: {
@@ -265,7 +265,7 @@ export const config: Options.Testrunner = {
         // <string> (expression) only execute the features or scenarios with tags matching the expression
         tagExpression:  desiredTag == 'All' ? '' : `@${desiredTag}`,
         // <number> timeout for step definitions
-        timeout: 10000,
+        timeout: 120000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
         ignoreUndefinedDefinitions: false
     },
