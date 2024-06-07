@@ -17,7 +17,7 @@ async function getProductsListAndPrices(text){
 
     for(let i = 0 ; i < productsNames.length ; i++){
         await browser.pause(2000)
-      variables.productsNamesList.push(await productsNames[i].getText());
+        variables.productsNamesList.push(await productsNames[i].getText());
     };
 
     for(let j = 0 ; j < productsPrices.length ; j++){

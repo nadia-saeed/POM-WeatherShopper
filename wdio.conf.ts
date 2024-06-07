@@ -190,14 +190,14 @@ export const config: Options.Testrunner = {
     baseUrl:baseURL,
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 1000000,
+    waitforTimeout: 30000,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
-    connectionRetryTimeout: 300000,
+    connectionRetryTimeout: 120000,
     //
     // Default request retries count
-    connectionRetryCount: 1,
+    connectionRetryCount: 3,
     //
     // Test runner services
     // Services take over a specific job you don't want to take care of. They enhance

@@ -1,4 +1,4 @@
-import * as locators from "@wdio-ui/loginPage/loginPage.locators";
+import * as locators from "@wdio-ui/mainPage/mainPage.locators";
 
 export async function fetchTemperature(){
     return (await locators.temperature.getText());
