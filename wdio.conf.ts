@@ -25,9 +25,9 @@ if(desiredBrowser=='chrome'){
     browserName=[{
       maxInstances: 1,
       browserName: 'chrome',
-      'goog:chromeOptions': {
-        args: ['--incognito'], 
-      },
+      // 'goog:chromeOptions': {
+      //   args: ['--incognito'], 
+      // },
       acceptInsecureCerts: true,
     }]
   }
@@ -80,6 +80,7 @@ export const config: Options.Testrunner = {
     // Runner Configuration
     // ====================
     //
+    runner:"local",
     //
     // =====================
     // ts-node Configurations
@@ -124,7 +125,7 @@ export const config: Options.Testrunner = {
     // will be called from there.
     //
     specs: [
-         'weatherShopper.feature'
+         './tests/features/weatherShopper.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -189,11 +190,11 @@ export const config: Options.Testrunner = {
     baseUrl:baseURL,
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 1000000,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
-    connectionRetryTimeout: 120000,
+    connectionRetryTimeout: 300000,
     //
     // Default request retries count
     connectionRetryCount: 3,
@@ -203,21 +204,21 @@ export const config: Options.Testrunner = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
    // services: ['selenium-standalone'],
-
-    services: [
-      ['selenium-standalone',
-        { drivers: {
-          chrome: { version: '125.0.6422.142' },
+   services: ['selenium-standalone'],
+    // services: [
+    //   ['selenium-standalone',
+    //     { drivers: {
+    //       chrome: { version: '125.0.6422.142' },
          
-          firefox: { version: '0.33.0' },
+    //       firefox: { version: '0.33.0' },
           
-          chromiumedge: { version: '125.0.2535.85' }
-        },
-        installArgs: { chrome: { version: '125.0.6422.142' },
+    //       chromiumedge: { version: '125.0.2535.85' }
+    //     },
+    //     installArgs: { chrome: { version: '125.0.6422.142' },
         
-        firefox: { version: '0.33.0' }, 
-        chromiumedge: { version: '125.0.2535.85' }} 
-        } ]],
+    //     firefox: { version: '0.33.0' }, 
+    //     chromiumedge: { version: '125.0.2535.85' }} 
+    //     } ]],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -246,7 +247,7 @@ export const config: Options.Testrunner = {
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['weatherShopper.steps.ts'],
+        require: ['./tests/step-definitions/weatherShopper.steps.ts'],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -264,7 +265,7 @@ export const config: Options.Testrunner = {
         // <string> (expression) only execute the features or scenarios with tags matching the expression
         tagExpression:  desiredTag == 'All' ? '' : `@${desiredTag}`,
         // <number> timeout for step definitions
-        timeout: 60000,
+        timeout: 120000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
         ignoreUndefinedDefinitions: false
     },
@@ -456,11 +457,11 @@ export const config: Options.Testrunner = {
             return formatted;
           }
         },
-    }
+    
     /**
     * Gets executed when a refresh happens.
     * @param {String} oldSessionId session ID of the old session
     * @param {String} newSessionId session ID of the new session
     */
     // onReload: function(oldSessionId, newSessionId) {
-  // }
+   }

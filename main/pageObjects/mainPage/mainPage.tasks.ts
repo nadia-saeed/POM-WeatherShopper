@@ -1,4 +1,4 @@
-import * as locators from "@wdio-ui/loginPage/loginPage.locators";
+import * as locators from "@wdio-ui/mainPage/mainPage.locators";
 
 export async function fetchTemperature(){
     return (await locators.temperature.getText());
@@ -16,6 +16,7 @@ export async function extractTemperatureValue(){
 
 export async function clickButton(btnLocator){
     await btnLocator.waitForDisplayed();
+    await btnLocator.waitForClickable();
     await btnLocator.click();
 };
 

@@ -1,7 +1,8 @@
 import * as locators from "@wdio-ui/checkoutPage/checkoutPage.locators";
-
+import * as credentials from "@wdio-config/applicationCredentials/credentials.json"
 export async function clickToPay(){
     await locators.paymentButton.waitForDisplayed({timeout: 20000});
+    await locators.paymentButton.waitForClickable({timeout: 20000});
     await locators.paymentButton.click();
 };
 
@@ -12,22 +13,24 @@ export async function enterIframe(){
 };
 
 async function enterEachCredential(credentialName, credentialValue){
-    await credentialName.waitForDisplayed({timeout: 30000});
+    await credentialName.waitForDisplayed({timeout: 40000});
+    await credentialName.waitForClickable()
         for(const char of credentialValue){
             await credentialName.addValue(char);
     };
 };
 
 export async function enterCredentials(){
-    await enterEachCredential(locators.email, 'nothing@gmail.com');
-    await enterEachCredential(locators.cardNumber, '378282246310005');
-    await enterEachCredential(locators.expiryDate, '0530');
-    await enterEachCredential(locators.cvc, '1234');
-    await enterEachCredential(locators.billingZip, '12345');
+    await enterEachCredential(locators.email, credentials.qa.email);
+    await enterEachCredential(locators.cardNumber, credentials.qa.cardNumber);
+    await enterEachCredential(locators.expiryDate, credentials.qa.expiryDate);
+    await enterEachCredential(locators.cvc, credentials.qa.cvc);
+    await enterEachCredential(locators.billingZip, credentials.qa.billingZip);
 };
 
 export async function placeOrder(){
     await locators.submitButton.waitForDisplayed({timeout: 20000});
+    await locators.submitButton.waitForClickable({timeout: 20000})
     await locators.submitButton.click();
 };
 

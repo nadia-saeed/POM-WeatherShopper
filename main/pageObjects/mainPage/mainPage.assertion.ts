@@ -1,4 +1,4 @@
-import * as locators from "@wdio-ui/loginPage/loginPage.locators";
+import * as locators from "@wdio-ui/mainPage/mainPage.locators";
 // import assert from "soft-assert"
 
 export async function verifyWebsite(text){

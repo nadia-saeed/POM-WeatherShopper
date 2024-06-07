@@ -4,7 +4,6 @@
         "target": "es2019",
         "types": [
             "node",
-            "webdriverio/async",
             "@wdio/cucumber-framework",
             "expect-webdriverio",
             "wdio-intercept-service"
@@ -15,6 +14,7 @@
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "sourceMap": false,
+       
         "resolveJsonModule": true,
         "baseUrl": "main",
         "paths": {
